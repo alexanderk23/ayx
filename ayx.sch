@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:ayx-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -20,7 +20,7 @@ U 1 1 5B7222D8
 P 5570 3570
 F 0 "U1" H 4970 5320 50  0000 L CNN
 F 1 "STM32F405RGTx" H 5280 3570 50  0000 L CNN
-F 2 "Housings_QFP:LQFP-64_10x10mm_Pitch0.5mm" H 4970 1870 50  0001 R CNN
+F 2 "Package_QFP:LQFP-64_10x10mm_P0.5mm" H 4970 1870 50  0001 R CNN
 F 3 "" H 5570 3570 50  0001 C CNN
 	1    5570 3570
 	1    0    0    -1  
@@ -59,7 +59,7 @@ U 1 1 5B73DEE9
 P 1890 1790
 F 0 "U2" H 1890 1940 50  0000 L BNN
 F 1 "AY-3-8912A Socket" H 1890 1840 50  0000 L BNN
-F 2 "Housings_DIP:DIP-28_W15.24mm" H 1890 1940 50  0001 C CNN
+F 2 "DIL28" H 1890 1940 50  0001 C CNN
 F 3 "" H 1890 1790 60  0001 C CNN
 	1    1890 1790
 	1    0    0    -1  
@@ -94,17 +94,17 @@ Z80_D6
 Text GLabel 1690 3390 0    49   3State ~ 0
 Z80_D7
 Text GLabel 6270 2370 2    49   Output ~ 0
-A_CHA
+A_OUT_L
 Text GLabel 6270 2470 2    49   Output ~ 0
-A_CHC
+A_OUT_R
 $Comp
-L ayx:Conn_01x03_Female J1
+L Connector:Conn_01x02_Female J1
 U 1 1 5B73F06D
 P 1790 4620
-F 0 "J1" H 1790 4820 50  0000 C CNN
+F 0 "J1" H 1790 4742 50  0000 C CNN
 F 1 "USART" H 1790 4420 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.00mm" H 1790 4620 50  0001 C CNN
-F 3 "" H 1790 4620 50  0001 C CNN
+F 2 "ayx:USART" H 1790 4620 50  0001 C CNN
+F 3 "~" H 1790 4620 50  0001 C CNN
 	1    1790 4620
 	1    0    0    -1  
 $EndComp
@@ -129,8 +129,6 @@ Text GLabel 6270 2970 2    49   Input ~ 0
 USART_RX
 Text GLabel 1590 5150 0    49   Output ~ 0
 SWCLK
-Text GLabel 1590 4520 0    49   UnSpc ~ 0
-GND
 Text GLabel 1590 5250 0    49   UnSpc ~ 0
 GND
 Text GLabel 2890 2490 2    49   UnSpc ~ 0
@@ -520,7 +518,7 @@ Wire Wire Line
 	5570 5370 5570 5490
 Connection ~ 5670 5490
 Connection ~ 5470 5490
-Text GLabel 2360 3800 2    49   Output ~ 0
+Text GLabel 2350 3800 2    49   Output ~ 0
 ~AY_A9
 $Comp
 L ayx:C_Small C6
@@ -672,9 +670,9 @@ F 3 "" H 2800 4910 50  0001 C CNN
 	1    2800 4910
 	0    1    1    0   
 $EndComp
-Text GLabel 3040 4750 2    49   Input ~ 0
+Text GLabel 3040 4750 2    49   Output ~ 0
 A_CHB
-Text GLabel 3040 4910 2    49   Input ~ 0
+Text GLabel 3040 4910 2    49   Output ~ 0
 A_CHC
 Wire Wire Line
 	2950 4750 3040 4750
@@ -684,12 +682,12 @@ Wire Wire Line
 	2650 4750 2590 4750
 Wire Wire Line
 	2590 4910 2650 4910
-Text GLabel 3040 4590 2    49   Input ~ 0
+Text GLabel 3040 4590 2    49   Output ~ 0
 A_CHA
 Wire Wire Line
 	2950 4590 2990 4590
-Text GLabel 2560 4590 0    49   Output ~ 0
-A_CHA
+Text GLabel 2560 4590 0    49   Input ~ 0
+A_OUT_L
 Wire Wire Line
 	2650 4590 2560 4590
 Connection ~ 2990 4590
@@ -733,9 +731,9 @@ F 3 "" H 2800 5450 50  0001 C CNN
 	1    2800 5450
 	0    1    1    0   
 $EndComp
-Text GLabel 3040 5290 2    49   Input ~ 0
+Text GLabel 3040 5290 2    49   Output ~ 0
 A_CHB
-Text GLabel 3040 5450 2    49   Input ~ 0
+Text GLabel 3040 5450 2    49   Output ~ 0
 A_CHC
 Wire Wire Line
 	2950 5290 3040 5290
@@ -743,12 +741,12 @@ Wire Wire Line
 	2950 5450 2980 5450
 Wire Wire Line
 	2650 5290 2590 5290
-Text GLabel 3040 5130 2    49   Input ~ 0
+Text GLabel 3040 5130 2    49   Output ~ 0
 A_CHA
 Wire Wire Line
 	2950 5130 3040 5130
-Text GLabel 2560 5450 0    49   Output ~ 0
-A_CHC
+Text GLabel 2560 5450 0    49   Input ~ 0
+A_OUT_R
 Wire Wire Line
 	2650 5450 2560 5450
 Connection ~ 2590 5290
@@ -787,8 +785,6 @@ F 3 "" H 9790 3650 50  0001 C CNN
 	1    9790 3650
 	0    1    1    0   
 $EndComp
-Text GLabel 2360 3970 2    49   Output ~ 0
-~AY_SEL
 Wire Wire Line
 	5670 5370 5670 5490
 Text GLabel 9770 2390 3    49   UnSpc ~ 0
@@ -797,14 +793,6 @@ Wire Wire Line
 	9370 1990 9300 1990
 Text GLabel 9300 1990 0    49   UnSpc ~ 0
 VDD5
-Text GLabel 2160 3800 0    49   UnSpc ~ 0
-GND
-Text GLabel 2160 3970 0    49   UnSpc ~ 0
-GND
-Wire Wire Line
-	2160 3800 2360 3800
-Wire Wire Line
-	2160 3970 2360 3970
 Text GLabel 5670 5670 3    49   UnSpc ~ 0
 GNDA
 Wire Wire Line
@@ -881,4 +869,12 @@ Wire Wire Line
 	2590 5290 2590 5130
 Wire Wire Line
 	2980 5450 3040 5450
+NoConn ~ 2150 3800
+NoConn ~ 2150 4000
+Text GLabel 2350 4000 2    49   Output ~ 0
+~AY_SEL
+Wire Wire Line
+	2150 4000 2350 4000
+Wire Wire Line
+	2150 3800 2350 3800
 $EndSCHEMATC
